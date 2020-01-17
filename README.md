@@ -38,7 +38,9 @@ The following are a few steps to get this code working:
 One you have installed ionFR in your computer, you will be able to run it from the terminal.
 
 To test the package, open a terminal and copy the IONEX file codg2930.11i in the directory ionFR/test, to your current working directory. Then, execute the following command:
+
 $ionFRM.py 08h37m05.6s+06d10m14.5s 52d54m54.6sn 6d52m11.7se 2011-10-20T00:00:00 codg2930.11i
+
 ionFR should produce a text file, IonRM.txt, which will contain ionospheric Faraday rotation values and uncertainties along the given LOS in steps of 1 hour during an entire day. For more on the outputs see "ionFR output" below.
 
 # Input arguments
