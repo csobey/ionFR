@@ -63,8 +63,8 @@ Examples: 6d52m11.7se (lon. east); 6d52m11.7sw (lon. west)
 Date when you want to predict the Ionospheric Faraday rotation in format YYYY-MM-DDT00:00:00. 
 Examples: 2004-05-19T00:00:00; 2011-10-20T00:00:00
 
-- IONEX file name
-Name of the IONEX file needed. Note: the IONEX file should be from the same Date specified above. 
+- IONEX_file (string)
+Name of the IONEX file needed. Note: the IONEX file should be from the same date specified above. 
 Example: codg2930.11i; igsg1130.19i
 
 The python script ftpdownload.py allows you to download the correct IONEX file from the website.
@@ -72,6 +72,7 @@ The python script ftpdownload.py allows you to download the correct IONEX file f
 <code> ftpdownload.py -d DATE (format YYYY-MM-DD) -t IONEX_file_type (string e.g. igsg, codg, etc.) </code>
 
 Example: <code> ftpdownload.py -d 2011-10-20 -t codg </code>
+
 The IONEX files are downloaded as compressed .Z files. These can be unpacked using e.g. gunzip or other suitable command.
 Note that ionFR is compatible with IONEX files with 2-hr time resolution.
 CODE IONEX files (codg) have changed format and will not be immediately compatible with ionFR after ~2014.
