@@ -67,7 +67,9 @@ Name of the IONEX file needed. Note: the IONEX file should be from the same Date
 Example: codg2930.11i; igsg1130.19i
 
 The python script ftpdownload.py allows you to download the correct IONEX file from the website.
+
 $ftpdownload.py -d DATE (format YYYY-MM-DD) -t IONEX_file_type (string e.g. igsg, codg, etc.)
+
 Example: $ftpdownload.py -d 2011-10-20 -t codg
 The IONEX files are downloaded as compressed .Z files. These can be unpacked using e.g. gunzip or other suitable command.
 Note that ionFR is compatible with IONEX files with 2-hr time resolution.
