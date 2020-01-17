@@ -24,13 +24,14 @@ The following are a few steps to get this code working:
 
 2) compile and create an executable of the software that has version 12 of the IGRF. Go to <your_path>/ionFR/IGRF/geomag70_linux/
    and type the following:
-   $ gcc -lm geomag70.c -o geomag70.exe
+   
+   <code>$ gcc -lm geomag70.c -o geomag70.exe</code>
 
 3) add to your PATH variable in your .bashrc or profile file the following:
-   export PATH=$PATH:<your_path>/ionFR
+<code> export PATH=$PATH:<your_path>/ionFR </code>
 
 4) make the ionFRM.py script located in <your_path>/ionFR executable:
-   chmod +x ionFRM.py
+   <code> chmod +x ionFRM.py </code>
 
 5) That's it! Have fun :-)
 
@@ -44,7 +45,7 @@ To test the package, open a terminal and copy the IONEX file codg2930.11i in the
 ionFR should produce a text file, IonRM.txt, which will contain ionospheric Faraday rotation values and uncertainties along the given LOS in steps of 1 hour during an entire day. For more on the outputs see "ionFR output" below.
 
 # Input arguments
-$ionFRM.py Source_RA±DEC Telescope_Latitude Telescope_Longitude Date Ionex_file
+<code> $ionFRM.py Source_RA±DEC Telescope_Latitude Telescope_Longitude Date Ionex_file </code>
 
 - Source_RA±DEC (string)
 Right Ascencion and Declination for a given LOS. 
@@ -68,9 +69,9 @@ Example: codg2930.11i; igsg1130.19i
 
 The python script ftpdownload.py allows you to download the correct IONEX file from the website.
 
-$ftpdownload.py -d DATE (format YYYY-MM-DD) -t IONEX_file_type (string e.g. igsg, codg, etc.)
+<code> $ftpdownload.py -d DATE (format YYYY-MM-DD) -t IONEX_file_type (string e.g. igsg, codg, etc.) </code>
 
-Example: $ftpdownload.py -d 2011-10-20 -t codg
+Example: <code> $ftpdownload.py -d 2011-10-20 -t codg </code>
 The IONEX files are downloaded as compressed .Z files. These can be unpacked using e.g. gunzip or other suitable command.
 Note that ionFR is compatible with IONEX files with 2-hr time resolution.
 CODE IONEX files (codg) have changed format and will not be immediately compatible with ionFR after ~2014.
