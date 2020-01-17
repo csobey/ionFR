@@ -90,3 +90,7 @@ ionFR will produce values only for source elevations higher than 0 degrees.
 An example python plot showing the output is included as test/plot_ionFR_output.png.
 A juypiter notebook used to create this plot is included as test/plot_ionFR_output.ipynb
 
+For more information about the code, we refer you to:
+Sotomayor-Beltran et al. 2013, Astronomy & Astrophysics, Volume 552, id.A58
+https://ui.adsabs.harvard.edu/abs/2013A%26A...552A..58S
+https://ui.adsabs.harvard.edu/abs/2015A%26A...581C...4S
