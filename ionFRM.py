@@ -30,15 +30,20 @@ path='/Users/sob017/Python/ionFR/ionFR-master/'
 
 import sys
 import os
+
+import math
+from scipy import pi
+
+# Add ionFR modules to the PYTHONPATH (internally, this is sys.path).
 sys.path.append(""+str(path)+"SiderealPackage")
 sys.path.append(""+str(path)+"PunctureIonosphereCoord")
 sys.path.append(""+str(path)+"IONEX")
 import rdalaz
+from rdalaz import usage
 import ippcoor_v1 as ippcoor
 import teccalc
 import tecrmscalc
 import ionheight
-from scipy import *
 
 # Defining some variables for further use
 TECU = pow(10,16)
@@ -99,7 +104,7 @@ for h in range(24):
 		TECpath = VTEC*TEC2m2/math.cos(ZenPunct) # from vertical TEC to line of sight TEC
 
 		# Calculation of RMS TEC path value (same as the step above)
- 		if rawLatitude[-1] == 's':
+		if rawLatitude[-1] == 's':
 			if rawLongitude[-1] == 'e':
 				RMSTECarr = tecrmscalc.calcRMSTEC(-(LatO + offLat)*180.0/pi,(LonO + offLon)*180.0/pi,nameIONEX)
 			if rawLongitude[-1] == 'w':
@@ -125,7 +130,7 @@ for h in range(24):
 			if rawLongitude[-1] == 'w':
 				f.write(''+str(year)+','+str(month)+','+str(day)+' C K'+str((EarthRadius+AltIon)/1000.0)+' '+str((LatO + offLat)*180.0/pi)+' '+str(-(LonO + offLon)*180.0/pi)+'')
 		f.close()
-		os.system(''+str(path)+'IGRF/geomag70_linux/geomag70.exe '+str(path)+'ionFR_2018/IGRF/geomag70_linux/IGRF12.COF f '+str(path)+'ionFR_2018/IGRF/geomag70_linux/input.txt '+str(path)+'ionFR_2018/IGRF/geomag70_linux/output.txt')
+		os.system(''+str(path)+'IGRF/geomag70_linux/geomag70.exe '+str(path)+'IGRF/geomag70_linux/IGRF12.COF f '+str(path)+'IGRF/geomag70_linux/input.txt '+str(path)+'IGRF/geomag70_linux/output.txt')
 		g = open(''+str(path)+'IGRF/geomag70_linux/output.txt', 'r')
 		data = g.readlines()
 		g.close()

@@ -75,7 +75,7 @@ def calcTEC(coordLat,coordLon,filename):
 	pointsLat = ((endLat - startLat)/stepLat) + 1
 
 	# 3D array that will contain TEC values only
-	a = numpy.zeros((NumberOfMaps,pointsLat,pointsLon))
+	a = numpy.zeros((int(NumberOfMaps), int(pointsLat), int(pointsLon)))
 
 	# Selecting only the TEC values to store in the 3-D array
 	counterMaps = 1
@@ -142,7 +142,7 @@ def calcTEC(coordLat,coordLon,filename):
 	# one indicated in the IONEX manual
 
 	# creating a new array that will contain 25 maps in total 
-	newa = numpy.zeros((totalmaps,pointsLat,pointsLon))
+	newa = numpy.zeros((totalmaps, int(pointsLat), int(pointsLon)))
 	inc = 0
 	for item in range(int(NumberOfMaps)):
 		newa[inc,:,:] = a[item,:,:]

@@ -13,6 +13,7 @@ Users are encouraged to report bugs or flaws. Suggestions or comments that the u
 You will need the following modules from python intalled in your machine:
 - numpy
 - scipy
+- future
 You also need the gcc compiler
 
 The following are a few steps to get this code working:
