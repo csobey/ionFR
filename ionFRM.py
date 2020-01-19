@@ -24,13 +24,14 @@
 # obtain 24 RM values (from 00~23)
 #-----------------------------------------------------------
 
-path='/Users/sob017/Python/ionFR/ionFR-master/'
+# `path` is the variable describing where the ionFR code is. Determine this
+# automatically.
+import os
+path = os.path.dirname(os.path.realpath(__file__)) + "/"
 
 #-----------------------------------------------------------
 
 import sys
-import os
-
 import math
 from scipy import pi
 
