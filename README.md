@@ -92,6 +92,8 @@ ionFR will produce values only for source elevations higher than 0 degrees.
 An example python plot showing the output is included as test/plot_ionFR_output.png.
 A juypiter notebook used to create this plot is included as test/plot_ionFR_output.ipynb
 
+Note: Ionospheric Faraday rotation estimates obtained for southern hemisphere observations (i.e. below the magnetic equator) will require a minus sign to be added (i.e. x-1), in accordance with the definition of Faraday rotation measure. A positive (negative) RM implies a magnetic field pointing towards (away from) the observer. 
+
 For more information about the code, we refer you to:
 Sotomayor-Beltran et al. 2013, Astronomy & Astrophysics, Volume 552, id.A58
 https://ui.adsabs.harvard.edu/abs/2013A%26A...552A..58S
