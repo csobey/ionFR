@@ -194,8 +194,8 @@ def parseDate ( s ):
     #   else -> raise SyntaxError ]
     m  =  DATE_PAT.match ( s )
     if  m is None:
-        raise SyntaxError, ( "Date does not have pattern YYYY-DD-MM: "
-                             "'%s'" % s )
+        raise SyntaxError ( "Date does not have pattern YYYY-DD-MM: "
+                            "'%s'" % s )
     #-- 2 --
     year   =  int ( m.group ( YEAR_FIELD ) )
     month  =  int ( m.group ( MONTH_FIELD ) )
@@ -232,8 +232,8 @@ def parseTime ( s ):
     if  minuteTail.startswith(':'):
         m  =  FLOAT_PAT.match ( minuteTail[1:] )
         if  m is None:
-            raise SyntaxError, ( "Expecting minutes: '%s'" %
-                                 minuteTail )
+            raise SyntaxError ( "Expecting minutes: '%s'" %
+                                minuteTail )
         else:
             decMinute  =  float(m.group())
             secondTail  =  minuteTail[m.end()+1:]
@@ -253,8 +253,8 @@ def parseTime ( s ):
     if  secondTail.startswith(':'):
         m  =  FLOAT_PAT.match ( secondTail[1:] )
         if  m is None:
-            raise SyntaxError, ( "Expecting seconds: '%s'" %
-                                 secondTail )
+            raise SyntaxError ( "Expecting seconds: '%s'" %
+                                secondTail )
         else:
             decSecond  =  float(m.group())
             zoneTail  =  secondTail[m.end()+1:]
@@ -312,7 +312,7 @@ def parseZone ( s ):
         tz  =  zoneCodeMap[s.upper()]
         return tz
     except KeyError:
-        raise SyntaxError, ( "Unknown time zone code: '%s'" % s )
+        raise SyntaxError ( "Unknown time zone code: '%s'" % s )
 # - - -   p a r s e F i x e d Z o n e
 
 HHMM_PAT  =  re.compile (
@@ -332,8 +332,8 @@ def parseFixedZone ( s ):
     if  s.startswith('+'):    sign  =  1
     elif  s.startswith('-'):  sign  =  -1
     else:
-        raise SyntaxError, ( "Expecting zone modifier as %shhmm: "
-                             "'%s'" % (s[0], s) )
+        raise SyntaxError ( "Expecting zone modifier as %shhmm: "
+                            "'%s'" % (s[0], s) )
     #-- 2 --
     # [ if s[1:] matches HHMM_PAT ->
     #     hours  :=  the HH part as an int
@@ -342,8 +342,8 @@ def parseFixedZone ( s ):
     rawHHMM  =  s[1:]
     m  =  HHMM_PAT.match ( rawHHMM )
     if  m is None:
-        raise SyntaxError, ( "Expecting zone modifier as %sHHMM: "
-                             "'%s'" % (s[0], s) )
+        raise SyntaxError ( "Expecting zone modifier as %sHHMM: "
+                            "'%s'" % (s[0], s) )
     else:
         hours  =  int ( rawHHMM[:2] )
         minutes  =  int ( rawHHMM[2:] )
@@ -541,8 +541,8 @@ def parseAngle ( s ):
             second, checkTail  =  parseFloatSuffix ( secTail,
                 S_PAT, "Seconds followed by 's'" )
             if  len(checkTail) != 0:
-                raise SyntaxError, ( "Unidentifiable angle parts: "
-                                     "'%s'" % checkTail )
+                raise SyntaxError ( "Unidentifiable angle parts: "
+                                    "'%s'" % checkTail )
     #-- 4 --
     # [ return the angle (degree, minute, second) in radians ]
     angleDegrees  =  dmsUnits.mixToSingle ( (degree, minute, second) )
@@ -617,7 +617,7 @@ def parseRe ( s, regex, message ):
     #   else -> raise SyntaxError, "Expecting (message)" ]
     m  =  regex.match ( s )
     if  m is None:
-        raise SyntaxError, "Expecting %s: '%s'" % (message, s)
+        raise SyntaxError ("Expecting %s: '%s'" % (message, s))
     #-- 2 --
     # [ return (matched text from s, text from s after match) ]
     head  =  m.group()
@@ -645,8 +645,8 @@ def parseLat ( s ):
     #   else -> raise SyntaxError ]
     m  =  NS_PAT.match ( last )
     if  m is None:
-        raise SyntaxError, ( "Latitude '%s' does not end with 'n' "
-                             "or 's'." % s )
+        raise SyntaxError ( "Latitude '%s' does not end with 'n' "
+                            "or 's'." % s )
     else:
         nsFlag  =  last.lower()
     #-- 3 --
@@ -682,8 +682,8 @@ def parseLon ( s ):
     #   else -> raise SyntaxError ]
     m  =  EW_PAT.match ( last )
     if  m is None:
-        raise SyntaxError, ( "Longitude '%s' does not end with "
-                             "'e' or 'w'." % s )
+        raise SyntaxError ( "Longitude '%s' does not end with "
+                            "'e' or 'w'." % s )
     else:
         ewFlag  =  last.lower()
     #-- 3 --
@@ -746,8 +746,8 @@ def parseHours ( s ):
             second, checkTail  =  parseFloatSuffix ( secTail,
                 S_PAT, "Seconds followed by 's'" )
             if  len(checkTail) != 0:
-                raise SyntaxError, ( "Unidentifiable angle parts: "
-                                     "'%s'" % checkTail )
+                raise SyntaxError ( "Unidentifiable angle parts: "
+                                    "'%s'" % checkTail )
     #-- 4 --
     # [ return the quantity (hour, minute, second) in hours ]
     result  =  dmsUnits.mixToSingle ( (hour, minute, second) )
@@ -824,7 +824,7 @@ class MixedUnits:
         #   else ->
         #     result  :=  result + (a list of shortage zeroes) ]
         if  shortage < 0:
-            raise ValueError, ( "Value %s has too many elements; "
+            raise ValueError ( "Value %s has too many elements; "
                 "max is %d." % (coeffs, stdLen) )
         elif  shortage > 0:
             result  +=  [0.0] * shortage

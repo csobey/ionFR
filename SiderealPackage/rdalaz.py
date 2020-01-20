@@ -9,6 +9,8 @@
 #================================================================
 # Imports
 #----------------------------------------------------------------
+from __future__ import print_function
+
 import sys, re
 import sidereal
 from math import *
@@ -122,7 +124,7 @@ def checkArgs(ti):
         usage ("Incorrect command line argument count." )
     else:
         rawRADec, rawLat, rawLon, rawDT, fileIONEXTEC  =  argList
-	rawDT = str(ti)
+        rawDT = str(ti)
 	
     #-- 2 --
     # [ if rawRADec is a valid set of equatorial coordinates ->
@@ -140,7 +142,7 @@ def checkArgs(ti):
     #     stop execution ]
     try:
         lat  =  sidereal.parseLat ( rawLat )
-    except SyntaxError, detail:
+    except SyntaxError as detail:
         usage ( "Invalid latitude: %s" % detail )
 
     #-- 4 --
@@ -151,7 +153,7 @@ def checkArgs(ti):
     #     stop execution ]
     try:
         lon  =  sidereal.parseLon ( rawLon )
-    except SyntaxError, detail:
+    except SyntaxError as detail:
         usage ( "Invalid longitude: %s" % detail )
 
     #-- 5 --
@@ -162,7 +164,7 @@ def checkArgs(ti):
     #     stop execution ]
     try:
         dt  =  sidereal.parseDatetime ( rawDT )
-    except SyntaxError, detail:
+    except SyntaxError as detail:
         usage ( "Invalid timestamp: %s" % detail )
 
     #-- 6 --
@@ -178,11 +180,11 @@ def usage ( *L ):
                            concatenated)
           stop execution ]
     """
-    print >>sys.stderr, "*** Usage:"
-    print >>sys.stderr, "***   rdaa RA+dec lat lon datetime"
-    print >>sys.stderr, "*** Or:"
-    print >>sys.stderr, "***   rdaa RA-dec lat lon datetime"
-    print >>sys.stderr, "*** Error: %s" % "".join(L)
+    print("*** Usage:", file=sys.stderr)
+    print("***   rdaa RA+dec lat lon datetime", file=sys.stderr)
+    print("*** Or:", file=sys.stderr)
+    print("***   rdaa RA-dec lat lon datetime", file=sys.stderr)
+    print("*** Error: %s" % "".join(L), file=sys.stderr)
     raise SystemExit
 # - - -   c h e c k R A D e c
 
@@ -223,7 +225,7 @@ def checkRADec ( rawRADec ):
     try:
         raHours  =  sidereal.parseHours ( rawRA )
         ra  =  sidereal.hoursToRadians ( raHours )
-    except SyntaxError, detail:
+    except SyntaxError as detail:
         usage ( "Right ascension '%s' should have the form "
                 "'NNh[NNm[NN.NNNs]]'." % rawRA )
     #-- 4 --
@@ -233,7 +235,7 @@ def checkRADec ( rawRADec ):
     #     stop execution ]
     try:
         absDec  =  sidereal.parseAngle ( rawDec )
-    except SyntaxError, detail:
+    except SyntaxError as detail:
         usage ( "Right ascension '%s' should have the form "
                 "'NNd[NNm[NN.NNNs]]'." % rawDec )
     #-- 5 --

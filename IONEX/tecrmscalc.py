@@ -63,7 +63,7 @@ def calcRMSTEC(coordLat,coordLon,filename):
 	pointsLat = ((endLat - startLat)/stepLat) + 1
 
 	# 3D array that will contain RMS TEC values only
-	a = numpy.zeros((NumberOfMaps,pointsLat,pointsLon)) # (Z,Y,X)
+	a = numpy.zeros((int(NumberOfMaps), int(pointsLat), int(pointsLon))) # (Z,Y,X)
 
 	# selecting only the RMS TEC values to store in the 3-D array
 	counterMaps = 1
@@ -130,7 +130,7 @@ def calcRMSTEC(coordLat,coordLon,filename):
 	# one indicated in the IONEX manual
 
 	# Creating a new array that will contain 25 maps in total 
-	newa = numpy.zeros((totalmaps,pointsLat,pointsLon))
+	newa = numpy.zeros((totalmaps, int(pointsLat), int(pointsLon)))
 	inc = 0
 	for item in range(int(NumberOfMaps)):
 		newa[inc,:,:] = a[item,:,:]
