@@ -20,9 +20,7 @@ The following are a few steps to get this code working:
 
 0) extract and open the ionFR/ folder
 
-1) open the file 'ionFRM.py' and modify the variable 'path' in the first line to <your_path> (the location of the directory on your machine). Example: /home/carlos/Documents/ 
-
-This step should now be redundant.
+1) *Note: This step should now be redundant.* Open the file 'ionFRM.py' and modify the variable 'path' in the first line to <your_path> (the location of the directory on your machine). Example: /home/carlos/Documents/ 
 
 2) compile and create an executable of the software that has version 12 of the IGRF. Go to <your_path>/ionFR/IGRF/geomag70_linux/
    and type the following:
