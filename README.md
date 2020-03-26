@@ -22,7 +22,7 @@ The following are a few steps to get this code working:
 
 1) *Note: This step should now be redundant.* Open the file 'ionFRM.py' and modify the variable 'path' in the first line to <your_path> (the location of the directory on your machine). Example: /home/carlos/Documents/ 
 
-2) compile and create an executable of the software that has version 12 of the IGRF. Go to <your_path>/ionFR/IGRF/geomag70_linux/
+2) compile and create an executable of the software that has version 13 of the IGRF (IGRF13.COF). Go to <your_path>/ionFR/IGRF/geomag70_linux/
    and type the following:
    
    <code>gcc -lm geomag70.c -o geomag70.exe</code>
