@@ -131,7 +131,7 @@ for h in range(24):
 			if rawLongitude[-1] == 'w':
 				f.write(''+str(year)+','+str(month)+','+str(day)+' C K'+str((EarthRadius+AltIon)/1000.0)+' '+str((LatO + offLat)*180.0/pi)+' '+str(-(LonO + offLon)*180.0/pi)+'')
 		f.close()
-		os.system(''+str(path)+'IGRF/geomag70_linux/geomag70.exe '+str(path)+'IGRF/geomag70_linux/IGRF12.COF f '+str(path)+'IGRF/geomag70_linux/input.txt '+str(path)+'IGRF/geomag70_linux/output.txt')
+		os.system(''+str(path)+'IGRF/geomag70_linux/geomag70.exe '+str(path)+'IGRF/geomag70_linux/IGRF13.COF f '+str(path)+'IGRF/geomag70_linux/input.txt '+str(path)+'IGRF/geomag70_linux/output.txt')
 		g = open(''+str(path)+'IGRF/geomag70_linux/output.txt', 'r')
 		data = g.readlines()
 		g.close()
