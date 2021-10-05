@@ -3,7 +3,7 @@ A code that allows you to predict the ionospheric Faraday rotation for a specifi
 
 # Introduction
 ionFR is a software package that provides an estimate the ionospheric Faraday rotation along a given line-of-sight (LOS) at a specific geographic location. 
-The software uses the International Geomagnetic Reference Field (IGRF12; available at https://www.ngdc.noaa.gov/IAGA/vmod/igrf.html) and global ionospheric maps given in the IONosphere map EXchange format (IONEX) that provide global TEC values (available at ftp://cddis.nasa.gov/pub/gps/products/ionex/). 
+The software uses the International Geomagnetic Reference Field (IGRF12; available at https://www.ngdc.noaa.gov/IAGA/vmod/igrf.html) and global ionospheric maps given in the IONosphere map EXchange format (IONEX) that provide global TEC values (available at https://cddis.nasa.gov/archive/gps/products/ionex/). 
 
 ionFR has been written almost entirely in Python. This software package has been proven to work well under the Ubuntu operating system.
 
