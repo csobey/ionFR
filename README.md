@@ -67,15 +67,19 @@ Examples: 2004-05-19T00:00:00; 2011-10-20T00:00:00
 Name of the IONEX file needed. Note: the IONEX file should be from the same date specified above. 
 Example: codg2930.11i; igsg1130.19i
 
-The python script ftpdownload.py allows you to download the correct IONEX file from the website.
+The python script url_download.py allows you to download the correct IONEX file from the website. 
+ftpdownload.py no longer works because https://cddis.nasa.gov/ no longer allow anonymous ftp downloads. 
+You have to create an account at https://urs.earthdata.nasa.gov/ and create a local .netrc file following instructions at https://cddis.nasa.gov/Data_and_Derived_Products/CreateNetrcFile.html 
+The code should then work as follows:
 
-<code> ftpdownload.py -d DATE (format YYYY-MM-DD) -t IONEX_file_type (string e.g. igsg, codg, etc.) </code>
+<code> python url_download.py -d DATE (format YYYY-MM-DD) -t IONEX_file_type (string e.g. igsg, codg, etc.) </code>
 
-Example: <code> ftpdownload.py -d 2011-10-20 -t codg </code>
+Example: <code> url_download.py -d 2011-10-20 -t igsg </code>
 
 The IONEX files are downloaded as compressed .Z files. These can be unpacked using e.g. gunzip or other suitable command.
 Note that ionFR is compatible with IONEX files with 2-hr time resolution.
 CODE IONEX files (codg) have changed format and will not be immediately compatible with ionFR after ~2014.
+However, alternative files (igsg) remain compatible with ionFR. 
 
 # ionFR Output
 A file called IonRM.txt will be created in the folder where you ran the test. This file contains
