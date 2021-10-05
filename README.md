@@ -67,7 +67,7 @@ Examples: 2004-05-19T00:00:00; 2011-10-20T00:00:00
 Name of the IONEX file needed. Note: the IONEX file should be from the same date specified above. 
 Example: codg2930.11i; igsg1130.19i
 
-The python script url_download.py allows you to download the correct IONEX file from the website. 
+The python script <code> url_download.py </code> allows you to download the correct IONEX file from the website. 
 ftpdownload.py no longer works because https://cddis.nasa.gov/ no longer allow anonymous ftp downloads. 
 You have to create an account at https://urs.earthdata.nasa.gov/ and create a local .netrc file following instructions at https://cddis.nasa.gov/Data_and_Derived_Products/CreateNetrcFile.html 
 The code should then work as follows:
